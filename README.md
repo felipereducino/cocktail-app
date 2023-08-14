@@ -10,6 +10,39 @@
 - Filtering by drink name
 - "Back" button to return to the previous route
 
+## Technologies Used
+
+- Vue.js
+- Nuxt.js
+- Ant Design Vue
+- TypeScript
+
+## Components
+
+- Home Page (pages/index.vue)
+- Lists drink categories
+- Navigates to the drink category page when clicking on a category
+- Drink Category Page (pages/category/\_category.vue)
+- Lists drinks from a specific category
+- Filters drinks by name
+- "Back" button to return to the previous page
+- Drink Details Page (pages/drink/\_id.vue)
+- Displays details of a specific drink
+- "Back" button to return to the previous page
+
+## Services
+
+- cocktailService: Integrates with TheCocktailDB API to fetch category data, drinks by category, and drink details.
+
+## Styles
+
+- Styles are defined using CSS classes and the Ant Design Vue library for visual elements.
+
+## Notes
+
+- Open your browser and access: http://localhost:3000
+- Make sure you have Node.js and Yarn installed in your environment.
+
 ## Build Setup
 
 ```bash
@@ -25,35 +58,6 @@ $ yarn start
 
 # generate static project
 $ yarn generate
-
-# Open your browser and access: http://localhost:3000
-
-# Technologies Used #
-# Vue.js
-# Nuxt.js
-# Ant Design Vue
-# TypeScript
-
-# Components #
-# Home Page (pages/index.vue)
-# Lists drink categories
-# Navigates to the drink category page when clicking on a category
-# Drink Category Page (pages/category/_category.vue)
-# Lists drinks from a specific category
-# Filters drinks by name
-# "Back" button to return to the previous page
-# Drink Details Page (pages/drink/_id.vue)
-# Displays details of a specific drink
-# "Back" button to return to the previous page
-
-# Services #
-# cocktailService: Integrates with TheCocktailDB API to fetch category data, drinks by category, and drink details.
-
-# Styles #
-# Styles are defined using CSS classes and the Ant Design Vue library for visual elements.
-
-# Notes #
-#Make sure you have Node.js and Yarn installed in your environment.
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
