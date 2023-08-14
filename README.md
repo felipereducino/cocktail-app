@@ -14,8 +14,9 @@
 
 - Vue.js
 - Nuxt.js
-- Ant Design Vue
 - TypeScript
+- Axios
+- Ant Design Vue
 
 ## Components
 
