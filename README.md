@@ -1,4 +1,4 @@
-# cocktail-app
+# Cocktail App Challenge
 
 # This is a Vue.js/Nuxt.js application for viewing drink categories, listing drinks by category, and displaying drink details.
 

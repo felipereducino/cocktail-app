@@ -5,7 +5,7 @@
     <div class="filter-section">
       <input
         v-model="searchKeyword"
-        placeholder="Filtrar por nome da bebida"
+        placeholder="Filter by drink name"
         class="search-input"
       />
     </div>
@@ -25,13 +25,13 @@
       </li>
     </ul>
     <footer class="footer">
-        <button class="back-button" @click="goBack">Voltar</button>
+      <button class="back-button" @click="goBack">Back</button>
     </footer>
   </div>
 </template>
 
 <script>
-import { getCategoryDrinks } from '~/services/cocktailService'
+import { getCategoryDrinks } from '~/services/cocktailService';
 
 export default {
   data() {
@@ -39,35 +39,35 @@ export default {
       categoryName: '',
       drinks: [],
       searchKeyword: '',
-    }
+    };
   },
   computed: {
     filteredDrinks() {
       if (!this.searchKeyword) {
-        return this.drinks
+        return this.drinks;
       }
-      const keyword = this.searchKeyword.toLowerCase()
+      const keyword = this.searchKeyword.toLowerCase();
       return this.drinks.filter((drink) =>
         drink.strDrink.toLowerCase().includes(keyword)
-      )
+      );
     },
   },
   async mounted() {
-    const category = this.$route.params.category // Obter o nome da categoria da rota
-    this.categoryName = category
+    const category = this.$route.params.category; // Get the category name from the route
+    this.categoryName = category;
 
     try {
-      this.drinks = await getCategoryDrinks(category)
+      this.drinks = await getCategoryDrinks(category);
     } catch (error) {
-      console.error('Erro ao carregar bebidas da categoria:', error)
+      console.error('Error loading drinks from category:', error);
     }
   },
   methods: {
     goBack() {
-      this.$router.back()
+      this.$router.back();
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -76,11 +76,15 @@ export default {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .category-title {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .filter-section {
@@ -88,9 +92,9 @@ export default {
 }
 
 .search-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
   font-size: 16px;
   width: 100%;
   max-width: 300px;
@@ -108,9 +112,11 @@ export default {
 .drink-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .drink-image img {
@@ -121,25 +127,26 @@ export default {
 
 .drink-name {
   font-weight: bold;
+  margin-top: auto;
 }
 
 .back-button {
-    background-color: #f06d06;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #d55503;
-  }
+  background-color: #f06d06;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #d55503;
+}
 
 .footer {
-    padding: 12px;
-    display: flex;
-    justify-content: flex-end;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

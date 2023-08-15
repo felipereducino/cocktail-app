@@ -1,9 +1,9 @@
 <template>
   <div class="categories-list">
-    <h1>Drinks Category</h1>
+    <h1 class="title">Explore Drink Categories</h1>
     <ul class="categories">
       <li v-for="category in categories" :key="category.strCategory">
-        <router-link :to="`/category/${category.strCategory}`">{{ category.strCategory }}</router-link>
+        <router-link :to="`/category/${category.strCategory}`" class="category-link">{{ category.strCategory }}</router-link>
       </li>
     </ul>
   </div>
@@ -22,7 +22,7 @@ export default {
     try {
       this.categories = await getCategories();
     } catch (error) {
-      console.error('Erro ao carregar categorias:', error);
+      console.error('Error loading categories:', error);
     }
   },
 };
@@ -30,33 +30,52 @@ export default {
 
 <style scoped>
 .categories-list {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .categories {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .categories li {
-  margin: 10px 0;
+  margin: 0;
 }
 
-.categories a {
+.category-link {
   display: block;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
   color: #007bff;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.categories a:hover {
+.category-link:hover {
   background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 </style>

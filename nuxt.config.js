@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'cocktail-app',
+    title: 'Cocktail App Challenge',
     htmlAttrs: {
       lang: 'en',
     },
